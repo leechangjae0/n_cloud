@@ -1,8 +1,8 @@
 const mysqlExecutor = require('../../model/mysqlExecutor');
-const mysqlStatement = require('./movietheaterStatement');
+const mysqlStatement = require('./folderStatement');
 
 
-exports.createMovietheater = async (req, res, next) => {
+exports.createFolder = async (req, res, next) => {
     try {
         const name = req.body.name;
         const location = req.body.location;
@@ -27,7 +27,7 @@ exports.createMovietheater = async (req, res, next) => {
     }
 }
 
-exports.readMovietheater = async (req, res, next) => {
+exports.readFolder = async (req, res, next) => {
     try {
         const sqldata = await mysqlExecutor(
             await mysqlStatement.readFolder(), []

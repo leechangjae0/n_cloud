@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const movie = require('./folderService.js');
+const folder = require('./folderService.js');
 
 
 const s3Upload = require('../s3Upload');
