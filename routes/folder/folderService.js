@@ -4,13 +4,10 @@ const mysqlStatement = require('./folderStatement');
 
 exports.createFolder = async (req, res, next) => {
     try {
-        const name = req.body.name;
-        const location = req.body.location;
-
-
-
+        const {userIdx, folderName} = req.body
+        
         const sqldata = await mysqlExecutor(
-            await mysqlStatement.createFolder(), [name, location]
+            await mysqlStatement.createFolder(), [userIdx, folderName]
         );
 
         res.send({

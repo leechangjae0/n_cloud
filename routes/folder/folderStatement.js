@@ -1,6 +1,6 @@
 exports.createFolder = () => {
     return `
-    INSERT INTO TB_FOLDER (
+    INSERT INTO FOLDER (
         USER_IDX, FOLDER_NAME
     ) VALUES (
         ?, ?
@@ -10,6 +10,6 @@ exports.createFolder = () => {
 exports.readFolder = () => {
     return `
     SELECT *
-    FROM TB_FOLDER
+    FROM FOLDER
     `
 }

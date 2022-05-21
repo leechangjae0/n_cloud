@@ -4,6 +4,7 @@ const s3 = new AWS.S3({   accessKeyId: 'AKIAYFPCMCXS4K7WDLMN',   secretAccessKey
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 const moment = require('moment');
+const path = require('path');
 const storage = multerS3({
     s3: s3,
     acl: 'public-read-write',
@@ -11,7 +12,8 @@ const storage = multerS3({
     key: (req, file, callback) => {
         let dir = req.body.dir;
         let datetime = moment().format('YYYYMMDDHHmmss');
-        callback(null, dir + datetime + "_" + file.originalname);  // 저장되는 파일명
+        let extension = path.extname(file.originalname);
+        callback(null, Date.now().toString() + extension); // 저장되는 파일명
     }
 });
 upload = multer({ storage: storage });

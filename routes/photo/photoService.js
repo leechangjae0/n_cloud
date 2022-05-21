@@ -1,0 +1,30 @@
+const mysqlExecutor = require('../../model/mysqlExecutor');
+const mysqlStatement = require('./photoStatement');
+
+
+exports.createPhoto = async (req, res, next) => {
+    try {
+        const {folderIdx, userIdx} = req.body
+        
+        const sqldata = await mysqlExecutor(
+            await mysqlStatement.createPhoto(), [req.file.originalname, folderIdx, req.file.location, userIdx]
+        );
+
+        console.log(req.file)
+        res.send({
+            status: 'ok',
+            message: 'success',
+            data : ""
+        })
+    } catch (e) {
+        console.error(e);
+        res.send({
+            status: 'FAIL',
+            messsage: '안됐어요'
+        })
+    }
+}
+
+
+
+

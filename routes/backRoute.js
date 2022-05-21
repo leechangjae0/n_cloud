@@ -7,7 +7,7 @@ const folderRoute = require('./folder/folder.js');
 const photoRoute = require('./photo/photo.js');
 
 router.use('/folder', folderRoute);
-// router.use('/user', userRoute);
-// router.use('/photo', photoRoute);
+//router.use('/user', userRoute);
+router.use('/photo', photoRoute);
 
 module.exports = router;

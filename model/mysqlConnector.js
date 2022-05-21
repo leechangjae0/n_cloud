@@ -5,7 +5,7 @@ host     : '15.164.232.201',
 port     : '3306',
 user     : 'lcj',
 password : '1234',
-database : process.env.DB_NAME || 'MOVIE',
+database : process.env.DB_NAME || 'NCLOUD',
 charset : 'utf8mb4'
 });
 console.log("called db - connection")
