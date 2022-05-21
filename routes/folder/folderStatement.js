@@ -1,7 +1,7 @@
 exports.createFolder = () => {
     return `
-    INSERT INTO TB_MOVIETHEATGITER (
-        THEATER_NAME, THEATER_LOCATION
+    INSERT INTO TB_FOLDER (
+        USER_IDX, FOLDER_NAME
     ) VALUES (
         ?, ?
     )   
@@ -10,6 +10,6 @@ exports.createFolder = () => {
 exports.readFolder = () => {
     return `
     SELECT *
-    FROM TB_MOVIETHEATER
+    FROM TB_FOLDER
     `
 }
