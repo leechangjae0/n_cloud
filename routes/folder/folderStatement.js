@@ -9,7 +9,12 @@ exports.createFolder = () => {
 }
 exports.readFolder = () => {
     return `
-    SELECT *
+    SELECT IDX, FOLDER_NAME, USER_IDX, CREATED_AT, UPDATED_AT
     FROM FOLDER
+    WHERE USER_IDX = ?
+    ORDER BY CREATED_AT ASC
     `
 }
+
+
+

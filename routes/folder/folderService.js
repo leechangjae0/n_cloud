@@ -26,8 +26,10 @@ exports.createFolder = async (req, res, next) => {
 
 exports.readFolder = async (req, res, next) => {
     try {
+        const {userIdx} = req.query
+
         const sqldata = await mysqlExecutor(
-            await mysqlStatement.readFolder(), []
+            await mysqlStatement.readFolder(), [userIdx]
         );
         res.send({
             status: 'ok',
