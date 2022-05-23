@@ -15,6 +15,14 @@ exports.readFolder = () => {
     ORDER BY CREATED_AT ASC
     `
 }
+exports.read2Folder = () => {
+    return `
+    SELECT IDX, FOLDER_NAME, USER_IDX, CREATED_AT, UPDATED_AT
+    FROM FOLDER
+    WHERE USER_IDX = ?
+    ORDER BY UPDATEDTED_AT ASC
+    `
+}
 
 
 
