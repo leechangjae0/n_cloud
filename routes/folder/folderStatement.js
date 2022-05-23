@@ -17,10 +17,10 @@ exports.readFolder = () => {
 }
 exports.read2Folder = () => {
     return `
-    SELECT IDX, FOLDER_NAME, USER_IDX, CREATED_AT, UPDATED_AT
-    FROM FOLDER
-    WHERE USER_IDX = ?
-    ORDER BY UPDATED_AT ASC
+    SELECT IDX, PHOTO_NAME, FOLDER_IDX, PHOTO_URL, CREATED_AT, UPDATED_AT, USER_IDX
+    FROM PHOTO
+    WHERE USER_IDX = ? and FOLDER_IDX = ?
+    ORDER BY CREATED_AT ASC
     `
 }
 

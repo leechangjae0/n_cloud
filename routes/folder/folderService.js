@@ -43,10 +43,10 @@ exports.readFolder = async (req, res, next) => {
 
 exports.read2Folder = async (req, res, next) => {
     try {
-        const {userIdx} = req.query
+        const {userIdx, folderIdx} = req.query
 
         const sqldata = await mysqlExecutor(
-            await mysqlStatement.read2Folder(), [userIdx]
+            await mysqlStatement.read2Folder(), [userIdx, folder_Idx]
         );
         res.send({
             status: 'ok',
