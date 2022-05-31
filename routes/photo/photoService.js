@@ -44,10 +44,10 @@ exports.readPhoto = async (req, res, next) => {
 
 exports.read2Photo = async (req, res, next) => {
     try {
-        const {userIdx} = req.query
+        const {folderIdx} = req.query
 
         const sqldata = await mysqlExecutor(
-            await mysqlStatement.readPhoto(), [userIdx]
+            await mysqlStatement.read2Photo(), [folderIdx]
         );
         res.send({
             status: 'ok',
