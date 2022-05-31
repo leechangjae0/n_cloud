@@ -25,6 +25,39 @@ exports.createPhoto = async (req, res, next) => {
     }
 }
 
+exports.readPhoto = async (req, res, next) => {
+    try {
+        const {userIdx} = req.query
+
+        const sqldata = await mysqlExecutor(
+            await mysqlStatement.readPhoto(), [userIdx]
+        );
+        res.send({
+            status: 'ok',
+            message: 'success',
+            data: sqldata
+        })
+    } catch (e) {
+
+    }
+}
+
+exports.read2Photo = async (req, res, next) => {
+    try {
+        const {userIdx} = req.query
+
+        const sqldata = await mysqlExecutor(
+            await mysqlStatement.readPhoto(), [userIdx]
+        );
+        res.send({
+            status: 'ok',
+            message: 'success',
+            data: sqldata
+        })
+    } catch (e) {
+
+    }
+}
 
 
 
