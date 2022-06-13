@@ -5,7 +5,7 @@ const user = require('./userService.js');
 
 const s3Upload = require('../s3Upload');
 
-router.route('/') 
+ router.route('/') 
      .post(folder.createFolder)
      .get(folder.readFolder)
     

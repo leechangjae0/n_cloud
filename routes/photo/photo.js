@@ -16,5 +16,7 @@ router.route('/')
 router.route('/test') 
     .get(photo.read2Photo)
 
+router.route('/hashTag') 
+    .get(photo.readHashTagRank)
 
 module.exports = router;
