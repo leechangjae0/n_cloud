@@ -7,8 +7,20 @@ exports.createPhoto = async (req, res, next) => {
         const {folderIdx, userIdx, hashtagList} = req.body
         console.log(req.body)
 
+        const readPoint = await mysqlExecutor(
+            await mysqlStatement.readPoint(), [userIdx]
+        );
+        
+        if(readPoint[0].POINT==0) 
+        throw new Error('1')
+
+        console.log(readPoint)
         const sqldata = await mysqlExecutor(
             await mysqlStatement.createPhoto(), [req.file.originalname, folderIdx, req.file.location, userIdx, hashtagList]
+        );
+
+        const updatePoint = await mysqlExecutor(
+            await mysqlStatement.updatePoint(), [userIdx]
         );
 
         console.log(req.file)

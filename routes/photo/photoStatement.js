@@ -1,9 +1,26 @@
+exports.readPoint = () => {
+    return `
+    SELECT POINT
+    FROM USER
+    WHERE IDX = ?
+    `
+}
+
 exports.createPhoto = () => {
     return `
     INSERT INTO NCLOUD.PHOTO (PHOTO_NAME, FOLDER_IDX, PHOTO_URL, USER_IDX, HASHTAG_LIST) 
     VALUES (?, ?, ?, ?, ?); 
     `
 }
+
+exports.updatePoint = () => {
+    return `
+    UPDATE USER
+    SET POINT = POINT - 100
+    WHERE IDX = ?
+    `
+}
+
 
 exports.readPhoto = () => {
     return `
